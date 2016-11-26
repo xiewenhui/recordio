@@ -1,0 +1,30 @@
+// protoc --go_out=. *.proto
+
+syntax = "proto3";
+
+package recordio;
+
+message Links {
+    repeated int64 backward = 1;
+    repeated int64 forward = 2;
+}
+
+message Language {
+    string code = 1;
+    string country = 2;
+}
+
+message Name {
+    repeated Language language = 1;
+    string url = 2;
+}
+
+message Document {
+    int64 docid = 1;
+    Links links = 2;
+    repeated Name name = 3;
+    string payload = 4;
+}
+
+
+
